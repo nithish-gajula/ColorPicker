@@ -1,0 +1,109 @@
+<resources>
+    <string name="app_name">Color Picker</string>
+    <string name="app_icon">App Icon</string>
+    <string name="color_picker_title">Color Picker</string>
+    <string name="more_icon">More</string>
+    <string name="photos_icon">Photos</string>
+    <string name="select_new_color">New Color</string>
+    <string name="delete_icon">Delete Color</string>
+    <string name="copy_icon">Copy Color</string>
+
+    <string name="version">1.1</string>
+    <string name="about_developer">
+        Created with ❤️ by Nithish Gajula
+    </string>
+
+
+    <string name="email_info">mailto:gajulanithish000@gmail.com</string>
+    <string name="github_info">https://github.com/nithish-gajula</string>
+    <string name="instagram_info">https://www.instagram.com/nithish_gajula/</string>
+    <string name="linkedin_info">https://www.linkedin.com/in/nithish-gajula-90130b227/</string>
+    <string name="developer_url">https://nithish-gajula.github.io/</string>
+    <string name="privacy_url">https://nithish-gajula.github.io/privacy.html</string>
+
+    <string name="pref_title_licence">Open source licenses</string>
+
+    <string name="rate_app_msg">If you enjoy using this app, would you mind taking a moment to rate it? It would not take more than a minute. Thank you for your support!</string>
+    <string name="rate_app_msg_jsk">Enjoying this app?\nPlease give us a review</string>
+    <string name="rate_now">Rate Now</string>
+    <string name="rate_us">Rate us</string>
+    <string name="check">Check Now</string>
+
+    <string name="msg_check_for_update">Would you like to check for updates on play store ?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="pref_title_library">Library</string>
+    <string name="pref_title_initial_style">Initial Style</string>
+    <string name="pref_title_alpha">Alpha</string>
+    <string name="pref_alpha_tip">Alpha allows you to set opacity of a color in (ARGB) format. Disabling Alpha results in (RGB) general format. </string>
+
+
+    <string name="wavelength_ir">IR</string>
+    <string name="wavelength_uv">UV</string>
+    <string name="color_r">R</string>
+    <string name="color_red">Red</string>
+    <string name="color_y">Y</string>
+    <string name="color_b">B</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_c">C</string>
+    <string name="color_details">Details</string>
+    <string name="color_g">G</string>
+    <string name="color_green">Green</string>
+    <string name="color_k">K</string>
+    <string name="color_m">M</string>
+    <string name="color_palette">Color palette</string>
+    <string name="color_palette_common_colors">Common colors</string>
+    <string name="color_palette_elementary">elementary™</string>
+    <string name="color_palette_html">HTML (W3C)</string>
+    <string name="color_palette_material_design">Material Design (2014 year)</string>
+    <string name="color_palette_ral_classic">RAL Classic</string>
+    <string name="color_palette_subtitle">Colors: %d</string>
+    <string name="color_palette_subtitle_selected">Colors: %d\nCurrently selected palette</string>
+    <string name="color_palette_traditional_japan">Traditional colors of Japan</string>
+    <string name="market_url">https://play.google.com/store/apps/details?id=gmikhail.colorpicker</string>
+    <string name="pref_advanced_mode_list">Expert mode items</string>
+    <string name="pref_aim_shape_default">circle</string>
+    <string name="pref_aim_tip">Tip: to change aim size, swipe the main screen.</string>
+    <string name="pref_common_colors_url">https://en.wikipedia.org/wiki/List_of_colors_(compact)</string>
+    <string name="pref_description_camera_preview_tip">Tip: if graphic artifacts occur, reduce the size and/or change fit to screen.</string>
+    <string name="pref_description_disclaimer">Samples of colors can significantly differ from the originals due to the color rendition. All colors are provided for informational purposes only. Do not use these values wherever a color match is required with high accuracy.</string>
+    <string name="pref_description_on_sound">Using native camera shutter sound</string>
+    <string name="pref_elementary_url">https://elementary.io/brand</string>
+    <string name="pref_html_url">https://www.w3schools.com/colors/colors_names.asp</string>
+    <string name="pref_last_db_update_title">Last database update</string>
+    <string name="pref_material_design_url">https://material.io/design/color/</string>
+    <string name="pref_max_pixels_default">1024</string>
+    <string name="pref_ral_url">https://en.wikipedia.org/wiki/List_of_RAL_colors</string>
+    <string name="pref_sampling_tip">Tip: to improve performance, decrease the refresh rate and/or decrease the number of pixels for sampling.</string>
+    <string name="pref_title_aim_shape">Aim shape</string>
+    <string name="pref_title_app_version">Version</string>
+    <string name="pref_title_camera_preview_size">Preview size</string>
+    <string name="pref_title_category_about">About</string>
+    <string name="pref_title_category_camera">Camera</string>
+    <string name="pref_title_category_color_picking">Color picking</string>
+    <string name="pref_title_category_colors_database_sources">Colors database sources</string>
+    <string name="pref_title_category_gdpr">Privacy</string>
+    <string name="pref_title_category_general">General</string>
+    <string name="pref_title_copy_to_clipboard">Copy color to clipboard</string>
+    <string name="pref_title_dark_theme">Dark theme</string>
+    <string name="pref_title_developer">Developer website</string>
+    <string name="pref_title_disclaimer">Disclaimer</string>
+    <string name="pref_title_fullscreen_camera_preview">Fit to screen</string>
+    <string name="pref_title_gdpr">Privacy settings (GDPR)</string>
+    <string name="pref_title_haptic_feedback">Haptic feedback</string>
+    <string name="pref_title_language">Language</string>
+    <string name="pref_title_licenses">Open source licenses</string>
+    <string name="pref_title_max_brightness">Max brightness</string>
+    <string name="pref_title_max_pixels">Maximum pixels for sampling</string>
+    <string name="pref_title_privacy">Privacy &amp; Terms</string>
+    <string name="pref_title_rate_app">Rate app</string>
+    <string name="pref_title_screenshot">Take a screenshot</string>
+    <string name="pref_title_sound">Shutter sound</string>
+    <string name="pref_title_update_frequency">Refresh rate</string>
+    <string name="pref_traditional_japan_url">https://en.wikipedia.org/wiki/Traditional_colors_of_Japan</string>
+    <string name="pref_update_frequency_default">250</string>
+
+
+</resources>

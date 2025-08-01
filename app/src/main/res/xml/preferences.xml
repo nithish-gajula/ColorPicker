@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_title_category_general">
+        <ListPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="ColorChooser"
+            android:entries="@array/pref_library_entries"
+            android:entryValues="@array/pref_library_values"
+            android:icon="@drawable/ic_language_24"
+            android:key="pref_library"
+            android:summary="%s"
+            android:title="@string/pref_title_library" />
+        <ListPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="PALETTE"
+            android:entries="@array/pref_initial_style_entries"
+            android:entryValues="@array/pref_initial_style_values"
+            android:icon="@drawable/ic_screenshot_24"
+            android:key="pref_initial_style"
+            android:summary="%s"
+            android:title="@string/pref_title_initial_style" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:icon="@drawable/ic_colorize_24"
+            android:key="pref_with_alpha"
+            android:title="@string/pref_title_alpha" />
+        <Preference android:summary="@string/pref_alpha_tip" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_title_category_about">
+        <Preference
+            android:icon="@drawable/ic_thumb_up_24"
+            android:key="pref_rate_app"
+            android:title="@string/pref_title_rate_app">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/market_url" />
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_verified_user_24"
+            android:key="pref_privacy"
+            android:summary="@string/privacy_url"
+            android:title="@string/pref_title_privacy">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/privacy_url" />
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_open_in_browser_24"
+            android:key="pref_developer"
+            android:summary="@string/developer_url"
+            android:title="@string/pref_title_developer">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/developer_url" />
+        </Preference>
+
+        <Preference
+            android:icon="@drawable/ic_info_24"
+            android:key="pref_license"
+            android:title="@string/pref_title_licence">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetPackage="com.example.colorpicker"
+                android:targetClass="com.example.colorpicker.LicenseActivity" />
+        </Preference>
+
+        <Preference
+            android:key="pref_app_ver"
+            android:title="@string/pref_title_app_version" />
+        <Preference
+            android:summary="@string/pref_description_disclaimer"
+            android:title="@string/pref_title_disclaimer" />
+    </PreferenceCategory>
+</androidx.preference.PreferenceScreen>
