@@ -1,0 +1,41 @@
+# === Android Studio specific ===
+.idea/
+*.iml
+local.properties
+
+# === Gradle build output ===
+.gradle/
+build/
+**/build/
+.externalNativeBuild/
+.cxx/
+
+# === System files ===
+.DS_Store       # macOS
+Thumbs.db       # Windows
+
+# === Auto-generated & temp files ===
+captures/
+*.log
+*.tmp
+*.apk
+*.jks
+*.keystore
+
+# === Test & coverage ===
+test-results/
+coverage/
+output.json
+
+# === Firebase / Crashlytics ===
+crashlytics-build.properties
+fabric.properties
+
+# === Optional: IDE asset settings ===
+/.idea/assetWizardSettings.xml
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/navEditor.xml
+/.idea/workspace.xml
+
