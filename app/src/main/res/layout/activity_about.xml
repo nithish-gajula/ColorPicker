@@ -8,16 +8,6 @@
     android:orientation="vertical"
     tools:context=".AboutActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/about_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimaryVariant"
-        app:navigationIcon="@drawable/arrow_back_24"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="About"
-        app:titleTextColor="@android:color/black" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

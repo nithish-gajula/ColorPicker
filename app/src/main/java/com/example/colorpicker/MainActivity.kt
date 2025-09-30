@@ -1,16 +1,12 @@
 package com.example.colorpicker
 
-import android.Manifest
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
 import android.app.Dialog
 import android.content.ClipData
 import android.content.ClipboardManager
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.Gravity
@@ -22,22 +18,19 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.OptIn
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
-import androidx.camera.core.ExperimentalGetImage
-import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toDrawable
 import androidx.core.graphics.toColorInt
-import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.lottie.LottieAnimationView
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -49,7 +42,6 @@ import net.mm2d.color.chooser.ColorChooserDialog
 import net.mm2d.color.chooser.ColorChooserDialog.TAB_HSV
 import net.mm2d.color.chooser.ColorChooserDialog.TAB_PALETTE
 import net.mm2d.color.chooser.ColorChooserDialog.TAB_RGB
-import androidx.core.graphics.drawable.toDrawable
 
 class MainActivity : AppCompatActivity(), ColorItemListener {
 
@@ -61,13 +53,16 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
     private lateinit var lottieAnimation: LottieAnimationView
     private var color: Int = "#8C9EFF".toColorInt()
     private val colorList = mutableListOf<ColorItem>()
-    private lateinit var pickImageLauncher: ActivityResultLauncher<Intent>
-    private lateinit var cameraPermissionLauncher: ActivityResultLauncher<String>
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         recyclerView = findViewById(R.id.recyclerColors)
         moreOptions = findViewById(R.id.more_options_id)
@@ -79,31 +74,8 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
         colorList.addAll(StorageUtil.loadColors(this))
         adapter.notifyDataSetChanged()
 
-        setupStatusBar()
         gradientAnimationButton()
         PreferenceManager.setDefaultValues(this, R.xml.preferences, true)
-
-        pickImageLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == RESULT_OK) {
-                val imageUri = result.data?.data
-                if (imageUri != null) {
-                    Toast.makeText(this, "Selected: $imageUri", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, ImageColorPickerActivity::class.java)
-                    intent.data = imageUri
-                    startActivityForResult(intent, 101)
-
-                }
-            }
-        }
-
-        cameraPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
-            if (isGranted) {
-                openCameraColorPicker()
-            } else {
-                Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show()
-            }
-        }
-
 
         if (colorList.isEmpty()) {
             lottieAnimation.visibility = View.VISIBLE
@@ -119,9 +91,6 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
         selectPhoto.setOnClickListener {
             showBottomDialog()
         }
-
-
-
 
         colorPickerButton.setOnClickListener {
 
@@ -175,7 +144,11 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
                                     HSVPickerView::class.java,
                                 )
 
-                                else -> withPickers(PresetPickerView::class.java, HSVPickerView::class.java, RGBPickerView::class.java)
+                                else -> withPickers(
+                                    PresetPickerView::class.java,
+                                    HSVPickerView::class.java,
+                                    RGBPickerView::class.java
+                                )
                             }
                         }
                         .withColor(color)
@@ -195,46 +168,6 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
             }
         }
     }
-
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        var colorHex : String?
-        if (requestCode == 101 && resultCode == RESULT_OK) {
-            colorHex = data?.getStringExtra("camera_selected_color")
-            if (colorHex != null) {
-                handleColorSelected(colorHex.toColorInt(),false)
-            }
-            colorHex = data?.getStringExtra("image_selected_color")
-            if (colorHex != null) {
-                handleColorSelected(colorHex.toColorInt(),false)
-            }
-        }
-    }
-
-    @OptIn(ExperimentalGetImage::class)
-    private fun openCameraColorPicker() {
-        val intent = Intent(this@MainActivity, CameraColorPickerActivity::class.java)
-        startActivityForResult(intent, 101)
-    }
-
-
-    private fun checkCameraPermissionAndOpen() {
-        when {
-            ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED -> {
-                openCameraColorPicker()
-            }
-            shouldShowRequestPermissionRationale(Manifest.permission.CAMERA) -> {
-                Toast.makeText(this, "Camera permission is required to pick color.", Toast.LENGTH_SHORT).show()
-                cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
-            }
-            else -> {
-                cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
-            }
-        }
-    }
-
-
 
     private fun handleColorSelected(selectedColor: Int, withAlpha: Boolean) {
         val colorCode = if (withAlpha) {
@@ -277,18 +210,16 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
 
         cameraLayout.setOnClickListener {
             dialog.dismiss()
-            checkCameraPermissionAndOpen()
-            Toast.makeText(this, "Tap on color preview to select", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Not Implemented Yet", Toast.LENGTH_SHORT).show()
         }
 
         imageLayout.setOnClickListener {
             dialog.dismiss()
-            val intent = Intent(Intent.ACTION_PICK).apply {
-                type = "image/*"
-            }
-            pickImageLauncher.launch(intent)
-//            val intent = Intent(this, ImageColorPickerActivity::class.java)
-//            startActivity(intent)
+//            val intent = Intent(Intent.ACTION_PICK).apply {
+//                type = "image/*"
+//            }
+//            pickImageLauncher.launch(intent)
+            Toast.makeText(this, "Not Implemented Yet", Toast.LENGTH_SHORT).show()
         }
 
         cancelButton.setOnClickListener {
@@ -303,10 +234,6 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
             setGravity(Gravity.BOTTOM)
         }
     }
-
-
-
-
 
 
     private fun showPopupMenu(anchor: View) {
@@ -353,11 +280,6 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true)
     }
 
-    private fun setupStatusBar() {
-        window.statusBarColor = ContextCompat.getColor(this, R.color.light_pink)
-        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
-    }
-
     override fun onDeleteClick(position: Int) {
         Toast.makeText(this, "${colorList[position].hexCode} Deleted!", Toast.LENGTH_SHORT).show()
         adapter.removeColor(position)
@@ -369,7 +291,7 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
     }
 
     override fun onCopyClick(hexCode: String) {
-        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
         val clip = ClipData.newPlainText("Color Hex", hexCode)
         clipboard.setPrimaryClip(clip)
         Toast.makeText(this, "$hexCode Copied!", Toast.LENGTH_SHORT).show()

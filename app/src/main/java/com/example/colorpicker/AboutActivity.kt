@@ -8,11 +8,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
-import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 
 class AboutActivity : AppCompatActivity() {
@@ -21,23 +21,24 @@ class AboutActivity : AppCompatActivity() {
     private lateinit var instagram: ImageView
     private lateinit var linkedin: ImageView
     private lateinit var gradientBackgroundLayout: LinearLayout
-    private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.gradient_background_layout)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         gmail = findViewById(R.id.gmail_img_id)
         github = findViewById(R.id.github_img_id)
         instagram = findViewById(R.id.instagram_img_id)
         linkedin = findViewById(R.id.linkedin_img_id)
         gradientBackgroundLayout = findViewById(R.id.gradient_background_layout)
-        toolbar = findViewById(R.id.about_toolbar)
 
-        setupStatusBar()
         gradientAnimationLayout(gradientBackgroundLayout)
-        toolbar.setNavigationOnClickListener(View.OnClickListener { onBackPressed() })
-
 
         gmail.setOnClickListener(View.OnClickListener {
             val uri = getString(R.string.email_info).toUri()
@@ -62,11 +63,6 @@ class AboutActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_VIEW, uri)
             startActivity(intent)
         })
-    }
-
-    private fun setupStatusBar() {
-        window.statusBarColor = ContextCompat.getColor(this, R.color.rich_electric_blue)
-        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
     }
 
     private fun gradientAnimationLayout(targetLayout: LinearLayout) {
