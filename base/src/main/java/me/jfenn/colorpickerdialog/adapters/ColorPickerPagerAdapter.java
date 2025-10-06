@@ -14,7 +14,7 @@ import me.jfenn.colorpickerdialog.views.picker.PickerView;
 
 public class ColorPickerPagerAdapter extends HeightablePagerAdapter implements OnColorPickedListener<PickerView>, ViewPager.OnPageChangeListener {
 
-    private Context context;
+    private final Context context;
     private OnColorPickedListener<PickerView> listener;
 
     @ColorInt
@@ -22,7 +22,7 @@ public class ColorPickerPagerAdapter extends HeightablePagerAdapter implements O
     private boolean isAlphaEnabled = true;
     private int position;
 
-    private PickerView[] pickers;
+    private final PickerView[] pickers;
 
     public ColorPickerPagerAdapter(Context context, PickerView... pickers) {
         this.context = context;

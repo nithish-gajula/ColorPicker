@@ -24,7 +24,7 @@ object ColorConverter {
         val argbHex = normalizeToARGB(hex)
         val colorInt = argbHex.toColorInt()
 
-        val a = Color.alpha(colorInt)
+        Color.alpha(colorInt)
         val r = Color.red(colorInt)
         val g = Color.green(colorInt)
         val b = Color.blue(colorInt)
@@ -146,7 +146,7 @@ object ColorConverter {
         val b1 = bn - w
         val y = min(r1, g1)
         val r2 = r1 - y
-        val g2 = g1 - y
+        g1 - y
         val b2 = b1
         return Triple(r2 + y, y, b2)
     }

@@ -43,7 +43,7 @@ abstract class PickerDialog<T extends PickerDialog> extends AppCompatDialogFragm
 
     private OnColorPickedListener<T> listener;
 
-    private SparseArray<ActivityResultHandler> resultHandlers;
+    private final SparseArray<ActivityResultHandler> resultHandlers;
 
     public PickerDialog() {
         resultHandlers = new SparseArray<>();

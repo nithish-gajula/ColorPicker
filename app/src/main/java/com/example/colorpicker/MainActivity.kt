@@ -10,7 +10,6 @@ import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.Gravity
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
@@ -20,7 +19,6 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.PopupMenu
 import androidx.core.graphics.drawable.toDrawable
 import androidx.core.graphics.toColorInt
 import androidx.core.view.ViewCompat
@@ -47,7 +45,7 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var colorPickerButton: MaterialButton
-    private lateinit var moreOptions: ImageButton
+    private lateinit var settings: ImageButton
     private lateinit var selectPhoto: ImageButton
     private lateinit var adapter: ColorAdapter
     private lateinit var lottieAnimation: LottieAnimationView
@@ -65,7 +63,7 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
         }
 
         recyclerView = findViewById(R.id.recyclerColors)
-        moreOptions = findViewById(R.id.more_options_id)
+        settings = findViewById(R.id.settings_id)
         selectPhoto = findViewById(R.id.select_photo_id)
         colorPickerButton = findViewById(R.id.color_picker_id)
         lottieAnimation = findViewById(R.id.lottieView)
@@ -84,8 +82,10 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
             lottieAnimation.visibility = View.GONE
             lottieAnimation.cancelAnimation()
         }
-        moreOptions.setOnClickListener { view ->
-            showPopupMenu(view)
+
+        settings.setOnClickListener { v ->
+            val intent = Intent(this@MainActivity, SettingsActivity::class.java)
+            startActivity(intent)
         }
 
         selectPhoto.setOnClickListener {
@@ -210,7 +210,7 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
 
         cameraLayout.setOnClickListener {
             dialog.dismiss()
-            Toast.makeText(this, "Not Implemented Yet", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Feature in development", Toast.LENGTH_SHORT).show()
         }
 
         imageLayout.setOnClickListener {
@@ -219,7 +219,7 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
 //                type = "image/*"
 //            }
 //            pickImageLauncher.launch(intent)
-            Toast.makeText(this, "Not Implemented Yet", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Feature in development", Toast.LENGTH_SHORT).show()
         }
 
         cancelButton.setOnClickListener {
@@ -233,38 +233,6 @@ class MainActivity : AppCompatActivity(), ColorItemListener {
             attributes.windowAnimations = R.style.DialogAnimation
             setGravity(Gravity.BOTTOM)
         }
-    }
-
-
-    private fun showPopupMenu(anchor: View) {
-        val popup = PopupMenu(this, anchor)
-        popup.menuInflater.inflate(R.menu.main_menu, popup.menu)
-        popup.setOnMenuItemClickListener { item: MenuItem ->
-            when (item.itemId) {
-                R.id.action_refresh -> {
-                    val restartIntent = Intent(this, MainActivity::class.java)
-                    restartIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(restartIntent)
-                    finish()
-                    true
-                }
-
-                R.id.action_settings -> {
-                    val intent = Intent(this@MainActivity, SettingsActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-
-                R.id.action_about -> {
-                    val intent = Intent(this@MainActivity, AboutActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-
-                else -> false
-            }
-        }
-        popup.show()
     }
 
     private fun setupRecyclerView() {

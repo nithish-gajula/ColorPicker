@@ -2,22 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/color_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ColorDetailsActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/about_toolbar"
+        android:id="@+id/color_details_toolbar"
+        style="@style/Toolbar.TitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimaryVariant"
         app:navigationIcon="@drawable/arrow_back_24"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="Color Details"
-        android:elevation="5dp"
-        app:titleTextColor="@android:color/black" />
+        app:title="Color Details" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/show_card_color_id"
@@ -26,7 +23,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="10dp"
         app:cardCornerRadius="10dp"
-        app:cardElevation="3dp"/>
+        app:cardElevation="3dp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -34,41 +31,26 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <!-- Hex Color Layout -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="16dp"
-                android:paddingVertical="2dp"
-                android:gravity="center_vertical">
+                android:paddingVertical="2dp">
 
                 <TextView
                     android:id="@+id/hex_color_tv_id"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="#FF0000"
-                    android:textSize="18sp"
-                    android:textStyle="italic"
-                    android:textColor="@color/dim_gray"
-                    android:ellipsize="end"
-                    android:singleLine="true" />
+                    style="@style/ColorDetails.TextView"
+                    android:text="#FF0000" />
 
                 <ImageButton
                     android:id="@+id/hex_color_copy_ib_id"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_round_button"
-                    android:contentDescription="@string/copy_icon"
-                    android:padding="12dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_copy"
-                    app:tint="@color/rich_electric_blue" />
+                    style="@style/ColorDetails.ImageButton" />
             </LinearLayout>
 
             <View
@@ -81,34 +63,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="16dp"
-                android:paddingVertical="2dp"
-                android:gravity="center_vertical">
+                android:paddingVertical="2dp">
 
                 <TextView
                     android:id="@+id/rgb_tv_id"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="RGB (255, 0, 0)"
-                    android:textSize="18sp"
-                    android:textStyle="italic"
-                    android:textColor="@color/dim_gray"
-                    android:ellipsize="end"
-                    android:singleLine="true" />
+                    style="@style/ColorDetails.TextView"
+                    android:text="RGB (255, 0, 0)" />
 
                 <ImageButton
                     android:id="@+id/rgb_copy_ib_id"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_round_button"
-                    android:contentDescription="@string/copy_icon"
-                    android:padding="12dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_copy"
-                    app:tint="@color/rich_electric_blue" />
+                    style="@style/ColorDetails.ImageButton"
+
+                    />
             </LinearLayout>
 
             <View
@@ -121,34 +90,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="16dp"
-                android:paddingVertical="2dp"
-                android:gravity="center_vertical">
+                android:paddingVertical="2dp">
 
                 <TextView
                     android:id="@+id/cmyk_tv_id"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="CMYK"
-                    android:textSize="18sp"
-                    android:textStyle="italic"
-                    android:textColor="@color/dim_gray"
-                    android:ellipsize="end"
-                    android:singleLine="true" />
+                    style="@style/ColorDetails.TextView"
+                    android:text="CMYK" />
 
                 <ImageButton
                     android:id="@+id/cmyk_copy_ib_id"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_round_button"
-                    android:contentDescription="@string/copy_icon"
-                    android:padding="12dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_copy"
-                    app:tint="@color/rich_electric_blue" />
+                    style="@style/ColorDetails.ImageButton" />
             </LinearLayout>
 
             <View
@@ -161,34 +115,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="16dp"
-                android:paddingVertical="2dp"
-                android:gravity="center_vertical">
+                android:paddingVertical="2dp">
 
                 <TextView
                     android:id="@+id/binary_tv_id"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="Binary"
-                    android:textSize="18sp"
-                    android:textStyle="italic"
-                    android:textColor="@color/dim_gray"
-                    android:ellipsize="end"
-                    android:singleLine="true" />
+                    style="@style/ColorDetails.TextView"
+                    android:text="Binary" />
 
                 <ImageButton
                     android:id="@+id/binary_copy_ib_id"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_round_button"
-                    android:contentDescription="@string/copy_icon"
-                    android:padding="12dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_copy"
-                    app:tint="@color/rich_electric_blue" />
+                    style="@style/ColorDetails.ImageButton" />
             </LinearLayout>
 
             <View
@@ -201,34 +140,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="16dp"
-                android:paddingVertical="2dp"
-                android:gravity="center_vertical">
+                android:paddingVertical="2dp">
 
                 <TextView
                     android:id="@+id/hsl_tv_id"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="HSL"
-                    android:textSize="18sp"
-                    android:textStyle="italic"
-                    android:textColor="@color/dim_gray"
-                    android:ellipsize="end"
-                    android:singleLine="true" />
+                    style="@style/ColorDetails.TextView"
+                    android:text="HSL" />
 
                 <ImageButton
                     android:id="@+id/hsl_copy_ib_id"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_round_button"
-                    android:contentDescription="@string/copy_icon"
-                    android:padding="12dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_copy"
-                    app:tint="@color/rich_electric_blue" />
+                    style="@style/ColorDetails.ImageButton" />
             </LinearLayout>
 
             <View
@@ -241,34 +165,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="16dp"
-                android:paddingVertical="2dp"
-                android:gravity="center_vertical">
+                android:paddingVertical="2dp">
 
                 <TextView
                     android:id="@+id/hsv_tv_id"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="HSV"
-                    android:textSize="18sp"
-                    android:textStyle="italic"
-                    android:textColor="@color/dim_gray"
-                    android:ellipsize="end"
-                    android:singleLine="true" />
+                    style="@style/ColorDetails.TextView"
+                    android:text="HSV" />
 
                 <ImageButton
                     android:id="@+id/hsv_copy_ib_id"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_round_button"
-                    android:contentDescription="@string/copy_icon"
-                    android:padding="12dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_copy"
-                    app:tint="@color/rich_electric_blue" />
+                    style="@style/ColorDetails.ImageButton" />
             </LinearLayout>
 
             <View
@@ -281,34 +190,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="16dp"
-                android:paddingVertical="2dp"
-                android:gravity="center_vertical">
+                android:paddingVertical="2dp">
 
                 <TextView
                     android:id="@+id/lab_tv_id"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="LAB"
-                    android:textSize="18sp"
-                    android:textStyle="italic"
-                    android:textColor="@color/dim_gray"
-                    android:ellipsize="end"
-                    android:singleLine="true" />
+                    style="@style/ColorDetails.TextView"
+                    android:text="LAB" />
 
                 <ImageButton
                     android:id="@+id/lab_copy_ib_id"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_round_button"
-                    android:contentDescription="@string/copy_icon"
-                    android:padding="12dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_copy"
-                    app:tint="@color/rich_electric_blue" />
+                    style="@style/ColorDetails.ImageButton" />
             </LinearLayout>
 
             <View
@@ -321,34 +215,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="16dp"
-                android:paddingVertical="2dp"
-                android:gravity="center_vertical">
+                android:paddingVertical="2dp">
 
                 <TextView
                     android:id="@+id/xyz_tv_id"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="XYZ"
-                    android:textSize="18sp"
-                    android:textStyle="italic"
-                    android:textColor="@color/dim_gray"
-                    android:ellipsize="end"
-                    android:singleLine="true" />
+                    style="@style/ColorDetails.TextView"
+                    android:text="XYZ" />
 
                 <ImageButton
                     android:id="@+id/xyz_copy_ib_id"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_round_button"
-                    android:contentDescription="@string/copy_icon"
-                    android:padding="12dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_copy"
-                    app:tint="@color/rich_electric_blue" />
+                    style="@style/ColorDetails.ImageButton" />
             </LinearLayout>
 
             <View
@@ -359,7 +238,6 @@
 
 
         </LinearLayout>
-
 
 
     </ScrollView>

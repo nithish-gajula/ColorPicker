@@ -1,36 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".LicenseActivity"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/licence"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".LicenseActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/license_toolbar"
+        style="@style/Toolbar.TitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimaryVariant"
         app:navigationIcon="@drawable/arrow_back_24"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="Open Source Licenses"
-        app:titleTextColor="@android:color/black" />
+        app:title="Open Source Licenses" />
 
     <WebView
         android:id="@+id/webViewLicense"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/license_toolbar"/>
+        android:layout_below="@+id/license_toolbar" />
 
     <!-- Zoom Controls -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:gravity="center"
+        android:orientation="horizontal"
         android:padding="8dp">
 
         <Button
@@ -43,7 +42,7 @@
             android:id="@+id/btnZoomOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zoom Out"
-            android:layout_marginStart="16dp" />
+            android:layout_marginStart="16dp"
+            android:text="Zoom Out" />
     </LinearLayout>
 </RelativeLayout>

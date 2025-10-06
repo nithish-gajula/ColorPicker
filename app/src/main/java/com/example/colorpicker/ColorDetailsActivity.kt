@@ -2,18 +2,17 @@ package com.example.colorpicker
 
 import android.content.ClipData
 import android.content.ClipboardManager
-import android.content.Context
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat
 import androidx.core.graphics.toColorInt
-import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 class ColorDetailsActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
@@ -37,9 +36,15 @@ class ColorDetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_color_details)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.color_details)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
-        toolbar = findViewById(R.id.about_toolbar)
+        toolbar = findViewById(R.id.color_details_toolbar)
         cardColorView = findViewById(R.id.show_card_color_id)
         hexColorText = findViewById(R.id.hex_color_tv_id)
         hexColorTextCopy = findViewById(R.id.hex_color_copy_ib_id)
@@ -59,8 +64,7 @@ class ColorDetailsActivity : AppCompatActivity() {
         xyzColorText = findViewById(R.id.xyz_tv_id)
         xyzTextCopy = findViewById(R.id.xyz_copy_ib_id)
 
-        setupStatusBar()
-        toolbar.setNavigationOnClickListener(View.OnClickListener { onBackPressed() })
+        toolbar.setNavigationOnClickListener { finish() }
 
         val colorHex = intent.getStringExtra("colorHex") ?: "#FFFFFF"
 //        val colorInt = intent.getIntExtra("colorInt", Color.WHITE)
@@ -111,13 +115,8 @@ class ColorDetailsActivity : AppCompatActivity() {
 
     }
 
-    private fun setupStatusBar() {
-        window.statusBarColor = ContextCompat.getColor(this, R.color.rich_electric_blue)
-        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
-    }
-
     private fun onCopyClick(label: String, copyCode: String) {
-        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
         val clip = ClipData.newPlainText(label, copyCode)
         clipboard.setPrimaryClip(clip)
         Toast.makeText(this, copyCode, Toast.LENGTH_SHORT).show()

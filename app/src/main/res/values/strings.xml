@@ -2,8 +2,9 @@
     <string name="app_name">Color Picker</string>
     <string name="app_icon">App Icon</string>
     <string name="color_picker_title">Color Picker</string>
-    <string name="more_icon">More</string>
+    <string name="back_icon">Back</string>
     <string name="photos_icon">Photos</string>
+    <string name="settings_icon">settings</string>
     <string name="select_new_color">New Color</string>
     <string name="delete_icon">Delete Color</string>
     <string name="copy_icon">Copy Color</string>
@@ -22,6 +23,7 @@
     <string name="privacy_url">https://nithish-gajula.github.io/privacy.html</string>
 
     <string name="pref_title_licence">Open source licenses</string>
+    <string name="pref_title_about">About</string>
 
     <string name="rate_app_msg">If you enjoy using this app, would you mind taking a moment to rate it? It would not take more than a minute. Thank you for your support!</string>
     <string name="rate_app_msg_jsk">Enjoying this app?\nPlease give us a review</string>

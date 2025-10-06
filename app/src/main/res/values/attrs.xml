@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="basicTextColor" format="color" />
+    <attr name="GrayTextColor" format="color" />
+    <attr name="basicIconColor" format="color" />
+    <attr name="fullBlurColor" format="color" />
+    <attr name="halfBlurColor" format="color" />
+    <attr name="cardBackgroundColor" format="color" />
+</resources>

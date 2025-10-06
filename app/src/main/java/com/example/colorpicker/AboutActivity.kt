@@ -5,7 +5,6 @@ import android.animation.ValueAnimator
 import android.content.Intent
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
@@ -23,8 +22,8 @@ class AboutActivity : AppCompatActivity() {
     private lateinit var gradientBackgroundLayout: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_about)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.gradient_background_layout)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -40,29 +39,29 @@ class AboutActivity : AppCompatActivity() {
 
         gradientAnimationLayout(gradientBackgroundLayout)
 
-        gmail.setOnClickListener(View.OnClickListener {
+        gmail.setOnClickListener {
             val uri = getString(R.string.email_info).toUri()
             val intent = Intent(Intent.ACTION_VIEW, uri)
             startActivity(intent)
-        })
+        }
 
-        github.setOnClickListener(View.OnClickListener {
+        github.setOnClickListener {
             val uri = getString(R.string.github_info).toUri()
             val intent = Intent(Intent.ACTION_VIEW, uri)
             startActivity(intent)
-        })
+        }
 
-        instagram.setOnClickListener(View.OnClickListener {
+        instagram.setOnClickListener {
             val uri = getString(R.string.instagram_info).toUri()
             val intent = Intent(Intent.ACTION_VIEW, uri)
             startActivity(intent)
-        })
+        }
 
-        linkedin.setOnClickListener(View.OnClickListener {
+        linkedin.setOnClickListener {
             val uri = getString(R.string.linkedin_info).toUri()
             val intent = Intent(Intent.ACTION_VIEW, uri)
             startActivity(intent)
-        })
+        }
     }
 
     private fun gradientAnimationLayout(targetLayout: LinearLayout) {

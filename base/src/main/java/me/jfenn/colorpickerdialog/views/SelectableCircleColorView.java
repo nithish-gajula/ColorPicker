@@ -43,7 +43,7 @@ public class SelectableCircleColorView extends AppCompatImageView {
     }
 
     private boolean showsAlphaGrid = false;
-    private Paint alphaGridPaint = getAlphaGridPattern();
+    private final Paint alphaGridPaint = getAlphaGridPattern();
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {

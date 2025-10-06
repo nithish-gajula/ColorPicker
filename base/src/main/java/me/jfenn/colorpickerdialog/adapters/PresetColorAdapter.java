@@ -80,7 +80,7 @@ public class PresetColorAdapter extends RecyclerView.Adapter<PresetColorAdapter.
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private SelectableCircleColorView colorView;
+        private final SelectableCircleColorView colorView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

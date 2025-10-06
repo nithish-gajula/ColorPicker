@@ -58,18 +58,30 @@
         </Preference>
 
         <Preference
-            android:icon="@drawable/ic_info_24"
+            android:icon="@drawable/ic_help_24"
             android:key="pref_license"
             android:title="@string/pref_title_licence">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:targetPackage="com.example.colorpicker"
-                android:targetClass="com.example.colorpicker.LicenseActivity" />
+                android:targetClass="com.example.colorpicker.LicenseActivity"
+                android:targetPackage="com.example.colorpicker" />
         </Preference>
 
         <Preference
+            android:icon="@drawable/ic_security_24"
             android:key="pref_app_ver"
             android:title="@string/pref_title_app_version" />
+
+        <Preference
+            android:icon="@drawable/ic_info_24"
+            android:key="pref_about"
+            android:title="@string/pref_title_about">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetClass="com.example.colorpicker.AboutActivity"
+                android:targetPackage="com.example.colorpicker" />
+        </Preference>
+
         <Preference
             android:summary="@string/pref_description_disclaimer"
             android:title="@string/pref_title_disclaimer" />

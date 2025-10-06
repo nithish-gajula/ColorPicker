@@ -24,8 +24,8 @@ import me.jfenn.androidutils.DimenUtilsKt;
  */
 public class AlphaColorDrawable extends Drawable {
 
-    private Paint bitmapPaint;
-    private Paint paint;
+    private final Paint bitmapPaint;
+    private final Paint paint;
     public static Bitmap tile;
 
     public AlphaColorDrawable(@ColorInt int color) {

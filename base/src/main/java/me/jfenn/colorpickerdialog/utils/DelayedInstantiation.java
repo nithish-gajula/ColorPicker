@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 
 public class DelayedInstantiation<T> {
 
-    private Class<T> tClass;
+    private final Class<T> tClass;
     private Instantiator<T> instantiator;
 
     private DelayedInstantiation(Class<T> tClass, Instantiator<T> instantiator) {
@@ -88,7 +88,7 @@ public class DelayedInstantiation<T> {
 
     public static class ConstructionInstantiator<T> implements Instantiator<T> {
 
-        private Constructor<T> constructor;
+        private final Constructor<T> constructor;
 
         public ConstructionInstantiator(Constructor<T> constructor) {
             this.constructor = constructor;

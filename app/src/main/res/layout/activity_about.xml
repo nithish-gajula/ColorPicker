@@ -1,132 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/gradient_background_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".AboutActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/user_profile_pic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:src="@mipmap/ic_launcher" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:fontFamily="monospace"
-                android:gravity="start"
-                android:text="Color\nPicker"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <ImageView
+            android:id="@+id/user_profile_pic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:textColor="@color/gunmetal"
-                android:text="Version "
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/app_version_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/gunmetal"
-                android:layout_gravity="center_vertical"
-                android:text="@string/version"
-                android:textSize="15sp" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="300dp"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="50dp"
-            android:layout_marginVertical="5dp"
-            android:background="@color/dim_gray" />
+            android:layout_margin="10dp"
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
-            android:id="@+id/developer_info_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:fontFamily="@font/roboto_slab_light"
+            android:layout_margin="10dp"
+            android:fontFamily="monospace"
+            android:gravity="start"
+            android:text="Color\nPicker"
             android:textColor="@color/black"
-            android:text="@string/about_developer"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:text="Version "
+            android:textColor="@color/gunmetal"
             android:textSize="15sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/app_version_id"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_gravity="center_vertical"
+            android:text="@string/version"
+            android:textColor="@color/gunmetal"
+            android:textSize="15sp" />
 
-            <ImageView
-                android:id="@+id/gmail_img_id"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginHorizontal="10dp"
-                android:clickable="true"
-                android:src="@drawable/ic_gmail_16" />
+    </LinearLayout>
 
-            <ImageView
-                android:id="@+id/github_img_id"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginHorizontal="10dp"
-                android:clickable="true"
-                android:src="@drawable/ic_github_16" />
+    <View
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginVertical="5dp"
+        android:background="@color/dim_gray" />
 
-            <ImageView
-                android:id="@+id/instagram_img_id"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginHorizontal="10dp"
-                android:clickable="true"
-                android:src="@drawable/ic_instagram_16" />
+    <TextView
+        android:id="@+id/developer_info_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:fontFamily="@font/roboto_slab_light"
+        android:text="@string/about_developer"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
 
-            <ImageView
-                android:id="@+id/linkedin_img_id"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginHorizontal="10dp"
-                android:clickable="true"
-                android:src="@drawable/ic_linkedin_16" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
+        <ImageView
+            android:id="@+id/gmail_img_id"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_gmail_16" />
 
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/github_img_id"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_github_16" />
+
+        <ImageView
+            android:id="@+id/instagram_img_id"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_instagram_16" />
+
+        <ImageView
+            android:id="@+id/linkedin_img_id"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_linkedin_16" />
+
 
     </LinearLayout>
 
