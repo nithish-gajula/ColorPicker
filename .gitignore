@@ -21,11 +21,13 @@ captures/
 *.apk
 *.jks
 *.keystore
+*.aab
 
 # === Test & coverage ===
 test-results/
 coverage/
 output.json
+output-metadata.json
 
 # === Firebase / Crashlytics ===
 crashlytics-build.properties
@@ -38,4 +40,4 @@ fabric.properties
 /.idea/modules.xml
 /.idea/navEditor.xml
 /.idea/workspace.xml
-
+/.idea/deploymentTargetSelector.xml
