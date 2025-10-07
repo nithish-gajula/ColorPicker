@@ -1,4 +1,4 @@
-package com.example.colorpicker
+package com.nithishgajula.colorpicker
 
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator

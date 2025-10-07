@@ -1,4 +1,4 @@
-package com.example.colorpicker
+package com.nithishgajula.colorpicker
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -63,8 +63,8 @@
             android:title="@string/pref_title_licence">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:targetClass="com.example.colorpicker.LicenseActivity"
-                android:targetPackage="com.example.colorpicker" />
+                android:targetClass="com.nithishgajula.colorpicker.LicenseActivity"
+                android:targetPackage="com.nithishgajula.colorpicker" />
         </Preference>
 
         <Preference
@@ -78,8 +78,8 @@
             android:title="@string/pref_title_about">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:targetClass="com.example.colorpicker.AboutActivity"
-                android:targetPackage="com.example.colorpicker" />
+                android:targetClass="com.nithishgajula.colorpicker.AboutActivity"
+                android:targetPackage="com.nithishgajula.colorpicker" />
         </Preference>
 
         <Preference

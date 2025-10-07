@@ -5,11 +5,11 @@ plugins {
 
 android {
 
-    namespace = "com.example.colorpicker"
+    namespace = "com.nithishgajula.colorpicker"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.colorpicker"
+        applicationId = "com.nithishgajula.colorpicker"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

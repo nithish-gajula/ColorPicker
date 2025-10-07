@@ -1,4 +1,4 @@
-package com.example.colorpicker
+package com.nithishgajula.colorpicker
 
 import android.os.Bundle
 import android.webkit.WebSettings

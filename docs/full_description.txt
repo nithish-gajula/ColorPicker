@@ -1,0 +1,11 @@
+Color Picker is a simple and easy-to-use app for playing with colors on your Android device! 📝✨
+
+- 🫟📂 Discover the perfect color and add it to your list for quick and easy access.
+
+- 🎨 Instantly view colors in a wide range of popular formats like HexCode, RGB, CMYK, Binary, HSL, HSV, LAB, XYZ, and many more.
+
+- 🖌️🔗 Choose from different libraries for the color picker dialog to customize your experience.
+
+Whether you're a designer, developer, or hobbyist, this app provides comprehensive and accurate color information in a clean and interactive user interface. Enhance your creative workflow with color picking and all the color data you need — all in one place!
+
+Try it now and bring your colors to life! 🎉

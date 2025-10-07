@@ -1,4 +1,4 @@
-package com.example.colorpicker
+package com.nithishgajula.colorpicker
 
 import android.graphics.Color
 import kotlin.math.*
